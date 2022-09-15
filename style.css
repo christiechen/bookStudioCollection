@@ -205,7 +205,7 @@ div {
     height: 25px;
 }
 /* BORDERS */
-div:not(.black):not(#flex-black) {
+div:not(.black) {
     box-shadow: 0px 0px 0px 4px black;
 }
 
