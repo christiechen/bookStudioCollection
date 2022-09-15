@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>art</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="frame"> 
+            <!-- The goal of this book is to show how I see CSS in a similar way to painting. The collection exists as a progressive trail of element transformations. -->
+
+            <!-- red squares -->
+            <div class="red" id="big-red"> </div>
+            <div class="red" id="narrow-red"> </div>
+            
+            <!-- yellow squares -->
+            <div class="yellow" id="big-yellow"> </div>
+            <div class="yellow" id="mid-yellow"> </div>
+            <div class="yellow" id="small-yellow"> </div>
+
+            <!-- blue squares -->
+            <div class="blue" id="blue"> </div>
+
+            <!-- black squares -->
+            <div class="black" id="big-black">
+                <div class="red"> </div>
+                <div class="blue"> </div>
+                <div class="yellow"> </div>
+            </div>
+            
+            <div class="black" id="small-black">
+                <div class="red"> </div>
+                <div class="blue"> </div>
+                <div class="yellow"> </div>
+            </div>
+
+
+        <!-- closing the frame -->
+        </div> 
+        <button id='restart'> Restart </button>
+        
+        <script>
+            document.getElementById("restart").addEventListener("click", ()=>{
+                location.reload();
+            })
+        </script>
+    </body>
+</html>
