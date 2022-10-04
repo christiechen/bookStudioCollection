@@ -1,0 +1,230 @@
+/* SET UP */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: var(--opacity);
+    }
+}
+
+@keyframes change {
+    0% {
+        width: var(--currentWidth);
+        height: var(--currentHeight);
+    }
+
+    100% {
+        width: var(--newWidth);
+        height: var(--newHeight);
+
+    }
+}
+
+@keyframes darken {
+    0% {
+        filter: brightness(100%)
+    }
+
+    100% {
+        filter: brightness(25%)
+    }
+}
+
+@keyframes move {
+    0%{
+
+    }
+    100% {
+        transform: translate(var(--x), var(--y)); 
+    }
+}
+
+div {
+    width: 50px;
+    height: 50px;
+    --currentWidth: 50px;
+    --currentHeight: 50px;
+    margin: 10px;
+}
+
+#frame {
+    width: 500px;
+    height: 500px;
+    margin: 200px auto;
+    border: 1px solid black;
+    position: relative;
+    
+}
+
+
+
+/* CREATE RED  */
+.red {
+    background-color: #ff0a14;
+    opacity: 0;
+}
+
+/* RED -- SCALE CHANGES */
+
+
+#narrow-red {
+    --newWidth: 30px;
+    --newHeight: 100px;
+    --opacity: 1;
+    animation: 
+        1s 0s 1 fadeIn forwards, 
+        1s 1s 1 change forwards;
+}
+
+#big-red {
+    --newWidth: 250px;
+    --newHeight: 250px;
+    --opacity: 1;
+    animation: 
+        1s 0s 1 fadeIn forwards, 
+        1s 1s 1 change forwards;
+}
+
+/* RED -- POSITIONING  */
+.red{
+    position: absolute;
+    z-index: -5;
+}
+#narrow-red {
+    bottom: 0px;
+    right: 0px;
+}
+#big-red {
+    top: 50px;
+    left:50px;
+}
+
+
+/* CREATE YELLOW */
+/* YELLOW -- FADE CHANGES */
+/* YELLOW -- POSITIONING MOVEMENT */
+
+.yellow {
+    background-color: #ebde0d;
+}
+
+/* YELLOW - CHANGE SIZE */
+
+.yellow {
+    opacity: 0;
+}
+#big-yellow{
+    width: 140px;
+    height: 100px;
+}
+#mid-yellow{
+    width: 140px;
+    height: 40px;
+}
+#small-yellow{
+    width: 45px;
+    height: 100px;
+}
+
+/* YELLOW - CHANGE POSITION */
+
+#big-yellow{
+    --x: 305px;
+    --y: 50px;
+    --opacity: 1;
+    animation: 1s 2s 1 fadeIn forwards, 1s 3s 1 move forwards;
+}
+#mid-yellow{
+    --x: 305px;
+    --y: -105px;
+    --opacity: 1;
+    animation: 1s 2s 1 fadeIn forwards, 1s 3s 1 move forwards;
+}
+#small-yellow{
+    --x: 0px;
+    --y: 220px;
+    --opacity: 1;
+    animation: 1s 2s 1 fadeIn forwards, 1s 3s 1 move forwards;
+}
+
+
+/* BLUE */
+.blue{
+    background-color: #0019e6;
+    position: absolute;
+    z-index: 3;
+}
+
+
+/* GROW AND CHANGE POSITION */
+.blue{
+    opacity: 0;
+}
+#blue{
+    --newWidth: 140px;
+    --newHeight: 80px;
+    --x: 305px;
+    --y: 100px;
+    --opacity: 1;
+    animation: 
+        1s 4s 1 fadeIn forwards, 
+        1s 5s 1 change forwards, 
+        1s 5s 1 move forwards;
+}
+
+
+/* BLACK BUILD */
+.black div{
+    position: absolute !important;
+    opacity: 0.5;
+}
+
+/* POSITIONING */
+.black div{
+    opacity: 0;
+}
+.black div{
+    --opacity: 0.6;
+    animation: 
+        1s 6s 1 fadeIn forwards, 
+        1s 7s 1 darken forwards
+}
+
+#big-black div{
+    top: 305px;
+    left:50px;
+    width: 125px;
+    height: 125px;
+}
+#small-black div{
+    top: 435px;
+    left:180px;
+    width: 120px;
+    height: 25px;
+}
+/* BORDERS */
+div:not(.black) {
+    box-shadow: 0px 0px 0px 4px black;
+}
+
+
+/* not included */
+#restart {
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    top: 100px;
+    left: calc(50% - 40px);
+    border: none;
+    border-radius: 10px;
+    font-family: monospace;
+    padding: 0px 5px;
+    background-color: #ebde0d;
+}
+#restart:hover {
+    background-color: #0019e6;
+    color: white;
+    transition-duration: 300ms;
+}
